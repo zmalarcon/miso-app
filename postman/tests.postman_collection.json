@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "ea8f7c34-9460-45aa-ba6d-8f87952aa71f",
+		"name": "[MISO][Cloud Native] Proyecto Entrega 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Produccion (postgres)",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user7999998\",\n    \"password\": \"pass12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/login",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sesion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/sesion/cab6389a-1643-4594-8e0c-d3d45bd8e330",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"sesion",
+								"cab6389a-1643-4594-8e0c-d3d45bd8e330"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "landing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/landing/",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"landing",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"palabras\": [\n        \"hola\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/busqueda",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"busqueda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/producto/54e5d1c0-a293-454e-8251-bdc8aa4e72f4",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"producto",
+								"54e5d1c0-a293-454e-8251-bdc8aa4e72f4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Local (sqlite)",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"1\",\n    \"password\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/login",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sesion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/sesion/4bcb30ae-cfaf-4b65-851f-2b4fdd5508d7",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"sesion",
+								"4bcb30ae-cfaf-4b65-851f-2b4fdd5508d7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "landing",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/landing",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"landing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"palabras\": [\n        \"hola\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{server}}/busqueda",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"busqueda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "producto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{server}}/producto/546f29e1-1d0d-49bc-8350-f1f32952c7e9",
+							"protocol": "http",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"producto",
+								"546f29e1-1d0d-49bc-8350-f1f32952c7e9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "127.0.0.1:3000"
+		}
+	]
+}
