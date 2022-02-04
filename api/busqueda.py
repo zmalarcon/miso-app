@@ -1,3 +1,4 @@
+import re
 from flask import Blueprint, request
 from connections.db_connection import DBConnection
 from injector import inject
@@ -29,10 +30,10 @@ def buscar_productos(db_connection: DBConnection):
             for p in range(numeroPalabras):
                 ranking = random.random()
                 palabra = db_connection.db.session.query(Palabra).filter(Palabra.ranking.op('>=')(ranking)).order_by(Palabra.ranking).limit(1).all()[0].palabra
-                palabras.append(palabra)
-            filtro = " & ".join(palabras)
+                palabras.append(re.sub(r'^\W', '', palabra))
+            filtro = " ".join(palabras)
             result = db_connection.db.session.query(Producto).filter(
-                func.to_tsvector('english', Producto.descripcion).op('@@')(func.to_tsquery('english', filtro))
+                func.to_tsvector('english', Producto.descripcion).op('@@')(func.plainto_tsquery('english', filtro))
             ).all()
     except NoResultFound:
         return {"message": "La busqueda no produjo resultados"}, 404
