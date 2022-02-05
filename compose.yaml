@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:14-alpine3.14
+    container_name: postgres
+    ports:
+      - "3002:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - vpn-tutoriales-misw-s1
+    environment:
+      POSTGRES_PASSWORD: tx73vOua4sAo70gI
+      POSTGRES_USER: postgres
+
+  aplicacion:
+    image: proyecto-entrega1-monolito:1.0
+    container_name: aplicacion-miso
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    networks:
+      - vpn-tutoriales-misw-s1
+    environment:
+      POSTGRES_PASSWORD: tx73vOua4sAo70gI
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: 192.168.0.3
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: misw-tutorial-k8s-db
+      FLASK_PORT: 3000
+
+networks:
+  vpn-tutoriales-misw-s1:
+
+volumes:
+  db-data:
